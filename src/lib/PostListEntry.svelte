@@ -1,24 +1,15 @@
 <script>
-    import Label from "svelte-material-icons/Label.svelte";
+    import Tags from "$lib/Tags.svelte";
 
     export let href;
     export let post;
 </script>
 
-<a {href}>
+<a {href} class="postListEntry">
     <h2 class="h3">{post.title}</h2>
     <div>
         <span>Published: {post.published}</span>
-        <div class="tags">
-            <Label/> Tags:
-            <div class="list">
-                {#each post.tags as tag}
-                    <span>{tag}</span>
-                {:else}
-                    None
-                {/each}
-            </div>
-        </div>
+        <Tags tags={post.tags}/>
     </div>
 </a>
 
@@ -36,35 +27,19 @@
         border-top: 1px solid lightgray;
     }
 
+    div {
+        border-bottom: 1px solid lightgray;
+    }
+
     a:hover > h2 {
         border-top: 1px solid var(--hover-col);
     }
 
-    .tags {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid lightgray;
-        padding: 0.4rem 0;
-    }
-
-    .tags > .list {
-        margin-left: 0.5rem;
-        display: flex;
-        gap: 0.5rem
-    }
-
-    .tags > .list > span {
-        background: var(--link-col);
-        color: white;
-        padding: 0.3rem 0.7rem;
-        border-radius: 0.4rem;
-    }
-
-    a:hover .tags {
+    a:hover div {
         border-bottom: 1px solid var(--hover-col);
     }
 
-    a:hover .tags > .list > span {
+    a.postListEntry:hover > div :global(.hover) {
         background: var(--hover-col);
     }
 </style>

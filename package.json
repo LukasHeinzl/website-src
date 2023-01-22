@@ -19,6 +19,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"svelte-markdown": "^0.2.3",
 		"svelte-material-icons": "^2.1.0"
 	}
 }

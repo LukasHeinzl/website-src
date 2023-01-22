@@ -1,4 +1,7 @@
 <script>
+    import SvelteMarkdown from "svelte-markdown";
+    import Tags from "$lib/Tags.svelte";
+
     export let type;
     export let src;
 
@@ -9,13 +12,8 @@
             data = (await data.json()).posts[src];
 
             let text = await fetch("/posts/" + type + "/" + src + ".md");
-
-            if (data.ok) {
-                data.contents = await text.text();
-                return data;
-            }
-
-            throw new Error();
+            data.content = await text.text();
+            return data;
         }
 
         throw new Error();
@@ -24,6 +22,15 @@
 
 {#await loadPost(src) then post}
     <h1>{post.title}</h1>
+    <div>
+        <span>Published: {post.published}</span>
+        <Tags tags={post.tags}/>
+    </div>
+    <SvelteMarkdown source={post.content}/>
 {:catch e}
-    An error occurred during loading
+    An error occurred during loading {e}
 {/await}
+
+<style>
+
+</style>
