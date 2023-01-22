@@ -1,5 +1,5 @@
 <script>
-    import EntryList from "$lib/PostList.svelte";
+    import PostList from "$lib/PostList.svelte";
 </script>
 
-<EntryList src="projects" title="Projects"/>
+<PostList src="projects" title="Projects"/>
