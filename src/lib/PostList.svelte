@@ -1,5 +1,5 @@
 <script>
-    import Post from "$lib/Post.svelte";
+    import PostListEntry from "$lib/PostListEntry.svelte";
     import Pin from "svelte-material-icons/Pin.svelte";
     import ArrowUp from "svelte-material-icons/ArrowUp.svelte";
     import ArrowDown from "svelte-material-icons/ArrowDown.svelte";
@@ -39,7 +39,7 @@
     {#await loadData(src) then data}
         {#if data.hasOwnProperty("pinned") && data.posts.hasOwnProperty(data.pinned)}
             <span class="h2 divider-top"><Pin/>Pinned post</span>
-            <Post href={data.pinned} post={data.posts[data.pinned]}/>
+            <PostListEntry href={data.pinned} post={data.posts[data.pinned]}/>
             <span class="divider-bottom spacer"></span>
         {/if}
 
@@ -55,7 +55,7 @@
 
         {#key sortOrder}
             {#each getPostsSorted(data) as [href, post]}
-                <Post {href} {post}/>
+                <PostListEntry {href} {post}/>
             {:else}
                 Nothing to show
             {/each}
