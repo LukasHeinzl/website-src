@@ -1,5 +1,6 @@
 <script>
-import {page} from "$app/stores";
+    import {page} from "$app/stores";
+    import Post from "$lib/Post.svelte";
 </script>
 
-{$page.params.post}
+<Post type={$page.params.type} src={$page.params.post}/>

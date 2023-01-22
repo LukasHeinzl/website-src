@@ -10,7 +10,7 @@
     let sortOrder = "newest";
 
     async function loadData(src) {
-        let data = await fetch("/posts/" + src + ".json");
+        let data = await fetch("/posts/" + src + "/data.json");
 
         if (data.ok) {
             return await data.json();
