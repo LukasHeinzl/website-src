@@ -1,9 +1,13 @@
 <script>
     import Post from "$lib/Post.svelte";
     import Pin from "svelte-material-icons/Pin.svelte";
+    import ArrowUp from "svelte-material-icons/ArrowUp.svelte";
+    import ArrowDown from "svelte-material-icons/ArrowDown.svelte";
 
     export let title;
     export let src;
+
+    let sortOrder = "newest";
 
     async function loadData(src) {
         let data = await fetch("/posts/" + src + ".json");
@@ -13,6 +17,19 @@
         }
 
         throw new Error();
+    }
+
+    function toggleSortOrder() {
+        sortOrder = sortOrder === "newest" ? "oldest" : "newest";
+    }
+
+    function getPostsSorted(data) {
+        return Object.entries(data.posts).sort((a, b) => {
+            let date1 = Date.parse(a[1].published.split(".").reverse().join("-"))
+            let date2 = Date.parse(b[1].published.split(".").reverse().join("-"))
+
+            return sortOrder === "newest" ? date2 - date1 : date1 - date2;
+        });
     }
 </script>
 
@@ -26,9 +43,23 @@
             <span class="divider-bottom spacer"></span>
         {/if}
 
-        {#each Object.entries(data.posts) as [href, post]}
-            <Post {href} {post}/>
-        {/each}
+        <button on:click={() => toggleSortOrder()}>
+            {#if sortOrder === "newest"}
+                <ArrowDown/>
+                Newest
+            {:else}
+                <ArrowUp/>
+                Oldest
+            {/if}
+        </button>
+
+        {#key sortOrder}
+            {#each getPostsSorted(data) as [href, post]}
+                <Post {href} {post}/>
+            {:else}
+                Nothing to show
+            {/each}
+        {/key}
     {:catch e}
         An error occurred loading the data :(
     {/await}
@@ -56,5 +87,22 @@
     span.h2 {
         display: flex;
         align-items: center;
+    }
+
+    button {
+        background: white;
+        border: 1px solid var(--link-col);
+        border-radius: 0.2rem;
+        margin-bottom: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    button:hover {
+        cursor: pointer;
+        color: var(--hover-col);
+        border-color: var(--hover-col);
     }
 </style>
