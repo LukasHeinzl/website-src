@@ -16,11 +16,11 @@
         <Home/>
         Home
     </a>
-    <a href="/projects/" class:active={$page.url.pathname === "/projects/"}>
+    <a href="/projects/" class:active={$page.url.pathname.startsWith("/projects/")}>
         <Cog/>
         Projects
     </a>
-    <a href="/blog/" class:active={$page.url.pathname === "/blog/"}>
+    <a href="/blog/" class:active={$page.url.pathname.startsWith("/blog/")}>
         <NewsPaperVariant/>
         Personal blog
     </a>
