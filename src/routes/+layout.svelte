@@ -47,6 +47,8 @@
         padding: 0.6rem;
         border: 1px solid var(--link-col);
         border-radius: 0.7rem;
+
+        box-shadow: #868686 5px 5px 10px 0;
     }
 
     footer {
