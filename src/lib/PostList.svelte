@@ -68,14 +68,14 @@
 <style>
     .divider-top {
         padding-top: 0.5rem;
-        border-top: 2px solid gray;
+        border-top: 2px solid var(--link-col);
         width: 100%;
         display: block;
     }
 
     .divider-bottom {
         padding-top: 0.5rem;
-        border-bottom: 2px solid gray;
+        border-bottom: 2px solid var(--link-col);
         width: 100%;
         display: block;
     }

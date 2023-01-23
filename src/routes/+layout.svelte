@@ -45,7 +45,7 @@
         max-height: 100%;
 
         padding: 0.6rem;
-        border: 1px solid gray;
+        border: 1px solid var(--link-col);
         border-radius: 0.7rem;
     }
 
@@ -71,8 +71,8 @@
         color: var(--link-col);
         padding: 0.5rem 0;
         flex: 1;
-        border-right: 1px solid gray;
-        border-top: 1px solid gray;
+        border-right: 1px solid var(--link-col);
+        border-top: 1px solid var(--link-col);
     }
 
     footer > a:last-of-type {
