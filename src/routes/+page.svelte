@@ -14,9 +14,9 @@
         I am a developer from Austria that currently studies Media technology with focus on interactive media
         (apps, websites, AR/VR, etc.).<br/>
         Below you can find a list of links to my profiles on various platforms.<br/>
-        On this website you can explore <a href="/projects">projects</a> that I have been or currently am working
+        On this website you can explore <a href="/projects/">projects</a> that I have been or currently am working
         on.<br/>
-        You will also find my <a href="/blog">personal blog</a> where I write more about my day-to-day life as well as
+        You will also find my <a href="/blog/">personal blog</a> where I write more about my day-to-day life as well as
         my long struggles
         with mental health.<br/>
         Have fun!

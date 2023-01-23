@@ -5,7 +5,7 @@
     export let post;
 </script>
 
-<a {href} class="postListEntry">
+<a href="{href}/" class="postListEntry">
     <h2 class="h3">{post.title}</h2>
     <div>
         <span>Published: {post.published}</span>
