@@ -60,11 +60,7 @@
     }
 
     a {
-        color: var(--link-col);
-    }
-
-    a:hover {
-        color: var(--hover-col);
+        text-decoration: underline;
     }
 
     div.link-list {

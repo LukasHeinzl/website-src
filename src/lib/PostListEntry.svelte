@@ -14,15 +14,6 @@
 </a>
 
 <style>
-    a {
-        text-decoration: none;
-        color: var(--link-col);
-    }
-
-    a:hover {
-        color: var(--hover-col);
-    }
-
     h2 {
         border-top: 1px solid lightgray;
     }

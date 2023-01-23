@@ -34,3 +34,12 @@ h3, .h3 {
     margin-block-start: 0;
     margin-block-end: 0 ;
 }
+
+a {
+    color: var(--link-col);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--hover-col);
+}

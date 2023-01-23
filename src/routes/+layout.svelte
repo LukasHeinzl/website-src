@@ -67,8 +67,6 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        text-decoration: none;
-        color: var(--link-col);
         padding: 0.5rem 0;
         flex: 1;
         border-right: 1px solid var(--link-col);
@@ -80,7 +78,6 @@
     }
 
     footer > a:hover {
-        color: var(--hover-col);
         background: var(--link-col);
     }
 
