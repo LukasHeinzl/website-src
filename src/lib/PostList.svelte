@@ -24,12 +24,8 @@
     }
 
     function getPostsSorted(data) {
-        return Object.entries(data.posts).sort((a, b) => {
-            let date1 = Date.parse(a[1].published.split(".").reverse().join("-"))
-            let date2 = Date.parse(b[1].published.split(".").reverse().join("-"))
-
-            return sortOrder === "newest" ? date2 - date1 : date1 - date2;
-        });
+        data = Object.entries(data.posts);
+        return sortOrder === "newest" ? data : data.reverse();
     }
 </script>
 
