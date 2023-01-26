@@ -11,30 +11,30 @@
     </div>
 </main>
 
-<footer>
+<nav>
     <a href="/" class:active={$page.url.pathname === "/"}>
-        <Home/>
+        <Home width="24" height="24"/>
         Home
     </a>
     <a href="/projects/" class:active={$page.url.pathname.startsWith("/projects/")}>
-        <Cog/>
+        <Cog width="24" height="24"/>
         Projects
     </a>
     <a href="/blog/" class:active={$page.url.pathname.startsWith("/blog/")}>
-        <NewsPaperVariant/>
-        Personal blog
+        <NewsPaperVariant width="24" height="24"/>
+        Blog
     </a>
-</footer>
+</nav>
 
 <style>
     main {
-        position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 4rem;
-        padding: 1.5rem;
+        padding: 5vh 10vw;
     }
+
 
     #content {
         overflow-y: auto;
@@ -45,45 +45,56 @@
         max-height: 100%;
 
         padding: 0.6rem;
-        border: 1px solid var(--link-col);
-        border-radius: 0.7rem;
-
-        box-shadow: #868686 5px 5px 10px 0;
     }
 
-    footer {
+    #content:last-child {
+        margin-bottom: 4rem;
+    }
+
+    nav {
         position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
-        height: 3rem;
+        min-height: 10vh;
 
         display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+        justify-content: space-around;
+        align-items: stretch;
+
+        backdrop-filter: blur(150px) brightness(.8);
+        -webkit-backdrop-filter: blur(150px);
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, .2);
+
+        mask-image: linear-gradient(0deg, black 50%, transparent 100%);
+        -webkit-mask-image: linear-gradient(0deg, black 50%, transparent 100%);
     }
 
-    footer > a {
+    nav > a {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         text-align: center;
-        padding: 0.5rem 0;
+        padding: 1rem;
         flex: 1;
-        border-right: 1px solid var(--link-col);
-        border-top: 1px solid var(--link-col);
+        color: var(--text-main);
+        text-transform: uppercase;
+
+        transition: all 300ms ease-out;
     }
 
-    footer > a:last-of-type {
-        border-right: none;
+    nav > a:not(.active):hover {
+        color: var(--link-col);
+        backdrop-filter: brightness(0);
+        -webkit-backdrop-filter: brightness(0);
+        background-color: rgba(255, 255, 255, .1);
     }
 
-    footer > a:hover {
-        background: var(--link-col);
-    }
-
-    footer > a.active {
-        color: var(--hover-col);
+    nav > a.active {
+        color: var(--accent-col);
+        cursor: default;
+        filter: brightness(.7);
+        background-color: rgba(255, 255, 255, .1);
     }
 </style>
