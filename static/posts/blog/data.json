@@ -1,0 +1,20 @@
+{
+  "pinned": "2023-01-22-test",
+  "posts": {
+    "2023-01-22-test": {
+      "title": "This is a test post",
+      "published": "22.01.2023",
+      "tags": []
+    },
+    "2023-01-22-test2": {
+      "title": "This is a test post",
+      "published": "23.01.2023",
+      "tags": []
+    },
+    "2023-01-23-mypost": {
+      "title": "A very short story",
+      "published": "23.01.2023",
+      "tags": ["Shit", "Short", "LoL"]
+    }
+  }
+}

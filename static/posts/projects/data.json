@@ -1,0 +1,10 @@
+{
+  "pinned": "",
+  "posts": {
+    "2023-01-22-test": {
+      "title": "This is a test post",
+      "published": "22.01.2023",
+      "tags": ["Nice", "So wow"]
+    }
+  }
+}
