@@ -114,3 +114,13 @@ article {
     border-style: solid;
     border-image: linear-gradient(90deg, transparent 10%, var(--bg-main) 50%, transparent 90%) 1;
 }
+
+blockquote {
+    border-left: 1px solid var(--accent-col);
+    margin: 0;
+    padding: 0.1rem 2rem;
+}
+
+blockquote > p > strong > em {
+    color: var(--accent-col);
+}
