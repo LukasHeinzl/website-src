@@ -37,7 +37,7 @@
 
 {#await loadPost(src) then post}
     <h1>{post.title}</h1>
-    <div>
+    <div id="metadata">
         <span>Published: {post.published}</span>
         <Tags tags={post.tags}/>
     </div>
@@ -69,6 +69,10 @@
 {/await}
 
 <style>
+    #metadata {
+        margin-bottom: 1rem;
+    }
+
     .prevNext {
         display: flex;
         justify-content: space-between;

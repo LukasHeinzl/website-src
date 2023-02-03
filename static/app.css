@@ -124,3 +124,7 @@ blockquote {
 blockquote > p > strong > em {
     color: var(--accent-col);
 }
+
+strong {
+    font-family: 'Righteous', Tahoma, Arial, sans-serif;
+}

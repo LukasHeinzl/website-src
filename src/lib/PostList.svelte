@@ -25,7 +25,7 @@
 
     function getPostsSorted(data) {
         data = Object.entries(data.posts);
-        return sortOrder === "newest" ? data : data.reverse();
+        return sortOrder === "newest" ? data.reverse() : data;
     }
 </script>
 

@@ -1,20 +1,15 @@
 {
-  "pinned": "2023-01-22-test",
+  "pinned": "2023-02-03-mental1",
   "posts": {
-    "2023-01-22-test": {
-      "title": "This is a test post",
-      "published": "22.01.2023",
-      "tags": []
+    "2023-02-03-mental1": {
+      "title": "1. I, Lonely and the modern world",
+      "published": "03.02.2023",
+      "tags": ["Mental health", "Meta post", "Start here"]
     },
-    "2023-01-22-test2": {
-      "title": "This is a test post",
-      "published": "23.01.2023",
-      "tags": []
-    },
-    "2023-01-23-mypost": {
-      "title": "A very short story",
-      "published": "23.01.2023",
-      "tags": ["Shit", "Short", "LoL"]
+    "2023-01-29-mental2": {
+      "title": "2. An insignificant person in an insignificant town",
+      "published": "TBD",
+      "tags": ["Mental health"]
     }
   }
 }
