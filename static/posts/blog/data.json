@@ -4,12 +4,30 @@
     "2023-02-03-mental1": {
       "title": "1. I, Lonely and the modern world",
       "published": "03.02.2023",
-      "tags": ["Mental health", "Meta post", "Start here"]
+      "tags": [
+        "Mental health",
+        "Meta post",
+        "Start here"
+      ]
     },
     "2023-02-05-mental2": {
       "title": "2. An insignificant person in an insignificant town",
       "published": "05.02.2023",
-      "tags": ["Mental health", "2000 - 2014", "Origins", "Childhood"]
+      "tags": [
+        "Mental health",
+        "2000 - 2014",
+        "Origins",
+        "Childhood"
+      ]
+    },
+    "2023-02-06-mental3": {
+      "title": "3. New beginnings - new chances?",
+      "published": "05.02.2023",
+      "tags": [
+        "Mental health",
+        "2014 - 2016",
+        "Isolation"
+      ]
     }
   }
 }
