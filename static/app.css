@@ -67,6 +67,7 @@ html, body, body > div {
 h1, .h1 {
     font-family: 'Righteous', Tahoma, Arial, sans-serif;
     font-size: 3rem;
+    color: var(--accent-col);
 }
 
 h2, .h2 {
@@ -126,7 +127,11 @@ blockquote > p > strong > em {
 }
 
 strong {
-    font-family: 'Righteous', Tahoma, Arial, sans-serif;
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
 }
 
 p:has(> img):has(> em) {

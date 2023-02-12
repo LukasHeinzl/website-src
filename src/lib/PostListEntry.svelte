@@ -1,36 +1,69 @@
 <script>
     import Tags from "$lib/Tags.svelte";
+    import ChevronRight from 'svelte-material-icons/ChevronRight.svelte';
+    import {page} from "$app/stores";
 
     export let href;
     export let post;
+
+    let viewCaption;
+    $: viewCaption = $page.params.type === 'projects' ? 'View project' : 'Read post';
+
 </script>
 
-<a href="{href}/" class="postListEntry">
-    <h2 class="h3">{post.title}</h2>
+<article class="postListEntry">
+    <h2 class="h3 title">
+        <a href="{href}">{post.title}</a>
+    </h2>
     <div>
-        <span>Published: {post.published}</span>
+        <span class="published">Published: {post.published}</span>
         <Tags tags={post.tags}/>
     </div>
-</a>
+    <a href="{href}" class="view-post">
+        <ChevronRight/> {viewCaption}
+    </a>
+</article>
 
 <style>
-    h2 {
-        border-top: 1px solid lightgray;
+    article {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        padding: unset;
     }
 
-    div {
-        border-bottom: 1px solid lightgray;
+    .title {
+        font-weight: bold;
+        padding: 0;
+        margin-top: 0;
     }
 
-    a:hover > h2 {
-        border-top: 1px solid var(--hover-col);
+    .title a {
+        color: var(--text-main);
+        border-color: transparent;
     }
 
-    a:hover div {
-        border-bottom: 1px solid var(--hover-col);
+    .title a:hover {
+        color: var(--accent-col);
+        border-color: var(--accent-col);
     }
 
-    a.postListEntry:hover > div :global(.hover) {
-        background: var(--hover-col);
+    .published {
+        opacity: .7;
+        font-size: .9rem;
     }
+
+    .view-post {
+        color: var(--accent-col);
+        border-color: var(--accent-col);
+        margin-top: 1rem;
+
+        transition: filter 200ms ease-out;
+    }
+
+    .view-post:hover {
+        filter: brightness(.8);
+    }
+
 </style>

@@ -1,8 +1,10 @@
 <script>
     import SvelteMarkdown from "svelte-markdown";
     import Tags from "$lib/Tags.svelte";
-    import ArrowLeft from "svelte-material-icons/ArrowLeft.svelte";
-    import ArrowRight from "svelte-material-icons/ArrowRight.svelte";
+    import ArrowLeftThin from "svelte-material-icons/ArrowLeftThin.svelte";
+    import ArrowRightThin from "svelte-material-icons/ArrowRightThin.svelte";
+    import {TextUtils} from "$lib/utils.js";
+    import '../post.css'
 
     export let type;
     export let src;
@@ -38,27 +40,33 @@
 {#await loadPost(src) then post}
     <h1>{post.title}</h1>
     <div id="metadata">
-        <span>Published: {post.published}</span>
+        <span class="published">Published: {post.published}</span>
         <Tags tags={post.tags}/>
     </div>
-    <SvelteMarkdown source={post.content}/>
+    <span class="post-content">
+        <SvelteMarkdown source={post.content}/>
+    </span>
 
     <div class="prevNext">
-        {#if post.previousPost !== undefined}
-            <a href="../{post.previousPostHref}/" class="prev">
-                <span class="arrow"><ArrowLeft/></span>
-                <span class="title">{post.previousPost.title}</span>
-                <span class="type">Previous</span>
+        {#if post.previousPost}
+            <a href="../{post.previousPostHref}/" class="prev" title="Go to previous post: '{post.previousPost.title}'">
+                    <span class="arrow"><ArrowLeftThin/></span>
+                <span class="caption">
+                    <span class="title">{TextUtils.limit(post.previousPost.title, 40)}</span>
+                    <span class="type">Previous</span>
+                </span>
             </a>
         {:else}
             <span></span>
         {/if}
 
-        {#if post.nextPost !== undefined}
-            <a href="../{post.nextPostHref}/" class="next">
-                <span class="title">{post.nextPost.title}</span>
-                <span class="type">Next</span>
-                <span class="arrow"><ArrowRight/></span>
+        {#if post.nextPost}
+            <a href="../{post.nextPostHref}/" class="next" title="Go to next post: '{post.nextPost.title}'">
+                <span class="caption">
+                    <span class="title">{TextUtils.limit(post.nextPost.title, 40)}</span>
+                    <span class="type">Next</span>
+                </span>
+                <span class="arrow"><ArrowRightThin/></span>
             </a>
         {:else}
             <span></span>
@@ -75,44 +83,53 @@
 
     .prevNext {
         display: flex;
+        flex-flow: row wrap;
         justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: .5rem;
+        margin-top: 2rem;
+    }
+
+    .prevNext > a {
+        color: var(--accent-col);
+        border-color: var(--accent-col);
+        display: flex;
+        flex-flow: row nowrap;
+        gap: .7rem;
+        padding-bottom: .5rem;
+        align-items: center;
+
+        transition: all 200ms ease-out;
+    }
+
+    .prevNext > a:hover {
+        filter: brightness(.8);
+    }
+
+    .prevNext .caption {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: .2rem;
     }
 
     .prevNext .prev {
-        display: grid;
-        column-gap: 0.4rem;
         min-width: 10rem;
-        grid-template-areas:
-            "arrow title"
-            "arrow type";
     }
 
     .prevNext .next {
-        display: grid;
-        column-gap: 0.4rem;
-        grid-template-areas:
-            "title arrow"
-            "type arrow";
         text-align: right;
-        margin-left: auto;
-    }
-
-    .prevNext .arrow {
-        grid-area: arrow;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .prevNext .title {
-        grid-area: title;
     }
 
     .prevNext .type {
-        grid-area: type;
-        font-size: 90%;
+        font-weight: bold;
+    }
+
+    .prevNext .title {
+        font-size: 1rem;
+        opacity: .8;
         font-style: italic;
+    }
+
+    .prevNext .arrow {
+        font-size: 1.5rem;
     }
 </style>

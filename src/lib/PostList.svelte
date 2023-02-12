@@ -3,6 +3,7 @@
     import Pin from "svelte-material-icons/Pin.svelte";
     import ArrowUp from "svelte-material-icons/ArrowUp.svelte";
     import ArrowDown from "svelte-material-icons/ArrowDown.svelte";
+    import NewspaperVariantOutline from 'svelte-material-icons/NewspaperVariantOutline.svelte';
 
     export let title;
     export let src;
@@ -32,26 +33,45 @@
 <div>
     <h1>{title}</h1>
 
+    <p class="title h2">
+        <span class="icon">
+            <Pin/>
+        </span>
+        <span class="caption">
+            Pinned post
+        </span>
+    </p>
     {#await loadData(src) then data}
         {#if data.hasOwnProperty("pinned") && data.posts.hasOwnProperty(data.pinned)}
-            <span class="h2 divider-top"><Pin/>Pinned post</span>
-            <PostListEntry href={data.pinned} post={data.posts[data.pinned]}/>
-            <span class="divider-bottom spacer"></span>
+            <div class="post pinned">
+                <PostListEntry href={data.pinned} post={data.posts[data.pinned]}/>
+            </div>
         {/if}
+
+        <p class="title h2">
+        <span class="icon">
+            <NewspaperVariantOutline/>
+        </span>
+            <span class="caption">
+            Recent posts
+        </span>
+        </p>
 
         <button on:click={() => toggleSortOrder()}>
             {#if sortOrder === "newest"}
                 <ArrowDown/>
-                Newest
+                <strong>Newest</strong> first
             {:else}
                 <ArrowUp/>
-                Oldest
+                <strong>Oldest</strong> first
             {/if}
         </button>
 
         {#key sortOrder}
             {#each getPostsSorted(data) as [href, post]}
-                <PostListEntry {href} {post}/>
+                <div class="post">
+                    <PostListEntry {href} {post}/>
+                </div>
             {:else}
                 Nothing to show
             {/each}
@@ -62,43 +82,40 @@
 </div>
 
 <style>
-    .divider-top {
-        padding-top: 0.5rem;
-        border-top: 2px solid var(--link-col);
-        width: 100%;
-        display: block;
+    .post {
+        margin-bottom: 2rem;
+        background-color: var(--bg-main);
+        border-radius: .7rem;
+        padding: 2rem;
+        box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
     }
 
-    .divider-bottom {
-        padding-top: 0.5rem;
-        border-bottom: 2px solid var(--link-col);
-        width: 100%;
-        display: block;
-    }
-
-    .spacer {
-        margin-bottom: 3rem;
-    }
-
-    span.h2 {
+    .title {
         display: flex;
-        align-items: center;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: .7rem;
     }
 
     button {
-        background: white;
-        border: 1px solid var(--link-col);
+        color: var(--link-col);
+        background: transparent;
+        border: 2px solid var(--link-col);
         border-radius: 0.2rem;
         margin-bottom: 0.5rem;
-        padding: 0.3rem 0.5rem;
+        padding: .5rem .8rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        cursor: pointer;
+
+        transition: all 200ms ease-out;
     }
 
     button:hover {
-        cursor: pointer;
-        color: var(--hover-col);
-        border-color: var(--hover-col);
+        color: var(--bg-main);
+        border-color: transparent;
+        background-color: var(--link-col);
     }
 </style>

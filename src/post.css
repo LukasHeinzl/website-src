@@ -1,0 +1,17 @@
+.post-content ul {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    list-style: none;
+    margin-top: 2rem;
+    line-height: 1.8rem;
+}
+
+.post-content ul li {
+
+}
+
+.post-content ul li:hover::before {
+    border-color: var(--text-main);
+}
+
