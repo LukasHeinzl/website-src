@@ -128,3 +128,11 @@ blockquote > p > strong > em {
 strong {
     font-family: 'Righteous', Tahoma, Arial, sans-serif;
 }
+
+p:has(> img):has(> em) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
