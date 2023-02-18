@@ -13,13 +13,13 @@
 
 <article class="postListEntry">
     <h2 class="h3 title">
-        <a href="{href}">{post.title}</a>
+        <a href="{href}/">{post.title}</a>
     </h2>
     <div>
         <span class="published">Published: {post.published}</span>
         <Tags tags={post.tags}/>
     </div>
-    <a href="{href}" class="view-post">
+    <a href="{href}/" class="view-post">
         <ChevronRight/> {viewCaption}
     </a>
 </article>

@@ -22,18 +22,18 @@
 
 @font-face {
     font-family: 'Raleway Thin';
-    src:    url("/fonts/raleway-thin.ttf"),
-            url('/fonts/raleway-thin-webfont.woff2') format('woff2'),
-            url('/fonts/raleway-thin-webfont.woff') format('woff');
+    src: url("/fonts/raleway-thin.ttf"),
+    url('/fonts/raleway-thin-webfont.woff2') format('woff2'),
+    url('/fonts/raleway-thin-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Raleway Thin Italic';
-    src:    url('/fonts/raleway-thin-italic.ttf'),
-            url('/fonts/raleway-thin-italic-webfont.woff2') format('woff2'),
-            url('/fonts/raleway-thin-italic-webfont.woff') format('woff');
+    src: url('/fonts/raleway-thin-italic.ttf'),
+    url('/fonts/raleway-thin-italic-webfont.woff2') format('woff2'),
+    url('/fonts/raleway-thin-italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -56,10 +56,10 @@
 html, body, body > div {
     margin: 0;
     color: var(--text-main);
-    background: rgb(4,6,13);
-    background: -moz-radial-gradient(circle, rgba(4,6,13,1) 34%, rgba(22,17,5,1) 100%);
-    background: -webkit-radial-gradient(circle, rgba(4,6,13,1) 34%, rgba(22,17,5,1) 100%);
-    background: radial-gradient(circle, rgba(4,6,13,1) 34%, rgba(22,17,5,1) 100%);
+    background: rgb(4, 6, 13);
+    background: -moz-radial-gradient(circle, rgba(4, 6, 13, 1) 34%, rgba(22, 17, 5, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(4, 6, 13, 1) 34%, rgba(22, 17, 5, 1) 100%);
+    background: radial-gradient(circle, rgba(4, 6, 13, 1) 34%, rgba(22, 17, 5, 1) 100%);
     font-size: 1.1rem;
     background-attachment: fixed;
 }
@@ -83,7 +83,7 @@ h3, .h3 {
     font-size: 1.4rem;
     font-weight: 500;
     margin-block-start: 0;
-    margin-block-end: 0 ;
+    margin-block-end: 0;
 }
 
 a {
@@ -134,7 +134,7 @@ em {
     font-style: italic;
 }
 
-p:has(> img):has(> em) {
+p:has(> a > img):has(> em) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +142,15 @@ p:has(> img):has(> em) {
     margin: 2rem 0;
 }
 
-img + em {
+p:has(> a > img):has(> em) a, p:has(> a > img):has(> em) a:hover {
+    border-bottom: none;
+}
+
+p:has(> a > img):has(> em) img {
+    max-width: 100%;
+}
+
+a:has(> img) + em {
     font-size: 1rem;
     margin-top: .4rem;
     opacity: .7;
