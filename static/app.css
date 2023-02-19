@@ -127,11 +127,7 @@ blockquote > p > strong > em {
 }
 
 strong {
-    font-weight: bold;
-}
-
-em {
-    font-style: italic;
+    font-family: 'Righteous', Tahoma, Arial, sans-serif;
 }
 
 p:has(> a > img):has(> em) {
